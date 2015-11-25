@@ -1,0 +1,109 @@
+$def with (game_info, time_left, steps)
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/metro.css" rel="stylesheet">
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/metro.js"></script>
+    <script type="text/javascript">
+    /*function startCountdown(minutes, seconds) 
+    {  
+        $$("#countdown").minutes = minutes;
+        $$("#countdown").seconds = seconds;
+        $$("#countdown").countdown();
+    };*/
+    jQuery(document).ready(function() 
+    {
+        jQuery(".game_button").click(function() {
+            //startCountdown(35, 42);
+            var input_string = $$( this ).attr('value');
+            jQuery.ajax({
+                type: "POST",
+                data: {"action": input_string},
+            });
+            return false;
+            });
+        jQuery(".step_finish").click(function() {
+            var step_name = $$( this ).closest("tr").attr("id");
+            jQuery.ajax({
+                type: "POST",
+                data: {"action": "finish_step", "step_name": step_name},
+            });
+            location.reload();
+            });
+        jQuery(".step_enable").click(function() {
+            var step_name = $$( this ).closest("tr").attr("id");
+            jQuery.ajax({
+                type: "POST",
+                data: {"action": "enable_step", "step_name": step_name},
+            });
+            location.reload();
+            });
+        
+    });
+    </script>
+    <title>Spēles kontrole</title>
+</head>
+<body style="background-image:url('/static/background/background-blue.png');" class="metrouicss">
+    <div class="app-bar" data-role="appbar">
+        <span class="app-bar-element">OpenEscapeRoom</span>
+        <span class="app-bar-divider"></span>
+        <a class="app-bar-element" href="/steps">Steps</a>
+        <a class="app-bar-element" href="/devices">Devices</a>
+        <a class="app-bar-element" href="/debug">Troubleshooting</a>
+        <span class="app-bar-element place-right">$game_info['name']</a>
+    </div>
+
+<div class="grid">
+<div class="row cells4">
+<div class="cell">
+$if game_info['state'] == True:
+    <h2>Spēle ir aktīva</h2>
+    <button class="button game_button danger" type="submit" value="stop"> Pabeigt spēli</button>
+$else:
+    <h2>Spēle nav uzsākta</h2>
+    <button class="button game_button success" type="submit" value="start"> Uzsākt spēli</button>
+<div class="countdown" id="countdown"></div>
+</div>
+<div class="cell colspan3">
+<h3>Scenarija soļi</h3>
+<table class="table bordered border">
+<thead><tr>
+<th>Number</th>
+<th>Description</th>
+<th>Steps that enable</th>
+<th>Actions</th>
+</tr></thead>
+<tbody>
+$for step in steps:
+    $if step["finished"] == True:
+        <tr class="success" id=$("step_{}".format(step['number']))>
+    $elif step["enabled"] == True:
+        <tr class="warning" id=$("step_{}".format(step['number']))>
+    $else:
+        <tr id=$("step_{}".format(step['number']))>
+    <td>$step['number']</td>
+    <td>$step['description']</td>
+    <td>$' ,'.join(step['stepnum_that_enable'])</td>
+    <td>
+    $if step["finished"] == True:
+        <button class="button step_reenable" type="submit">Ieslēgt soli</button>
+        <button class="button step_finish" type="submit" disabled>Pabeigt soli</button>
+    $elif step["enabled"] == True:
+        <button class="button step_reenable" type="submit" disabled>Ieslēgt soli</button>
+        <button class="button step_finish" type="submit">Pabeigt soli</button>
+    $else:
+        <button class="button step_enable" type="submit">Ieslēgt soli</button>
+        <button class="button step_finish" type="submit">Pabeigt soli</button>
+    </td>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+

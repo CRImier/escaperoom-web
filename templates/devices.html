@@ -1,0 +1,74 @@
+$def with (game_info, devices)
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/metro.css" rel="stylesheet">
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/metro.js"></script>
+    <script type="text/javascript">
+    function updateDeviceStatus( data ) {
+        device_rows = $$("tr[id|='trow-']");
+        console.log( data);
+        console.log( device_rows);
+    }    
+    jQuery(document).ready(function() 
+    {
+        jQuery("#device_test").click(function() {
+            var input_string = $$( this ).attr('value');
+            jQuery.ajax({
+                type: "POST",
+                data: {"action": input_string},
+                success:updateDeviceStatus
+            });
+            return false;
+            });
+    });
+    </script>
+    <title>Ieriču testēšana</title>
+</head>
+<body style="background-image:url('/static/background/background-blue.png');" class="metrouicss">
+    <div class="app-bar" data-role="appbar">
+        <span class="app-bar-element">OpenEscapeRoom</span>
+        <span class="app-bar-divider"></span>
+        <a class="app-bar-element" href="/steps">Steps</a>
+        <a class="app-bar-element" href="/devices">Devices</a>
+        <a class="app-bar-element" href="/debug">Troubleshooting</a>
+        <span class="app-bar-element place-right">$game_info['name']</a>
+    </div>
+
+<div class="grid">
+<div class="row cells4">
+<div class="cell">
+<button class="button device_test success" type="submit" value="test_devices"> Veikt testēšanu</button>
+<div class="countdown" id="countdown"></div>
+</div>
+<div class="cell colspan3">
+<h3>Ieriču statuss</h3>
+<table class="table bordered border">
+<thead><tr>
+<th>Nosaukums</th>
+<th>Apraksts</th>
+<th>ID</th>
+<th>Rezultāti</th>
+<th>Tests</th>
+</tr></thead>
+<tbody>
+$devices
+$for device in devices:
+    <tr id='trow-$(device['name'])'>
+    <td>$device['name']</td>
+    <td>$device['description']</td>
+    <td>$device['id']</td>
+    <td>0/0</td>
+    <td><button class="button device_button success" type="submit" value="test_devices"> Testēt</button></td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

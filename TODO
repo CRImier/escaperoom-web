@@ -1,0 +1,23 @@
+  File "/usr/lib/python2.7/dist-packages/web/application.py", line 396, in handle_cl
+ass                                                                                 
+    return tocall(*args)                                                            
+  File "main.py", line 31, in GET                                                   
+    game_info = {'state':server.get_game_state(), 'name':'Museum'}                  
+  File "/usr/local/lib/python2.7/dist-packages/jsonrpclib/jsonrpc.py", line 276, in 
+__call__                                                                            
+    return self.__send(self.__name, kwargs)                                         
+  File "/usr/local/lib/python2.7/dist-packages/jsonrpclib/jsonrpc.py", line 224, in 
+_request                                                                            
+    response = self._run_request(request)                                           
+  File "/usr/local/lib/python2.7/dist-packages/jsonrpclib/jsonrpc.py", line 242, in 
+_run_request                                                                        
+    verbose=self.__verbose                                                          
+  File "/usr/lib/python2.7/xmlrpclib.py", line 1273, in request                     
+    return self.single_request(host, handler, request_body, verbose)                
+  File "/usr/lib/python2.7/xmlrpclib.py", line 1298, in single_request              
+    self.send_request(h, handler, request_body)                                     
+  File "/usr/lib/python2.7/xmlrpclib.py", line 1400, in send_request                
+    connection.putrequest("POST", handler, skip_accept_encoding=True)               
+  File "/usr/lib/python2.7/httplib.py", line 892, in putrequest                     
+    raise CannotSendRequest()                                                       
+CannotSendRequest                                                                   

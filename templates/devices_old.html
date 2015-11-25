@@ -1,0 +1,85 @@
+$def with (game_info, devices, test_conditions, test_results)
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/metro.css" rel="stylesheet">
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/metro.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function() 
+    {
+        jQuery("#device_test").click(function() {
+            var input_string = $$( this ).attr('value');
+            jQuery.ajax({
+                type: "POST",
+                data: {"action": input_string},
+            });
+            return false;
+            });
+    });
+    </script>
+    <title>Sensoru testēšana</title>
+</head>
+<body style="background-image:url('/static/background/background-blue.png');" class="metrouicss">
+    <div class="app-bar" data-role="appbar">
+        <span class="app-bar-element">OpenEscapeRoom</span>
+        <span class="app-bar-divider"></span>
+        <a class="app-bar-element" href="/steps">Steps</a>
+        <a class="app-bar-element" href="/devices">Devices</a>
+        <a class="app-bar-element" href="/debug">Troubleshooting</a>
+        <span class="app-bar-element place-right">$game_info['name']</a>
+    </div>
+
+<div class="grid">
+<div class="row cells4">
+<div class="cell">
+<button class="button game_button danger" type="submit" value="stop"> Pabeigt spēli</button>
+<div class="countdown" id="countdown"></div>
+</div>
+<div class="cell colspan3">
+<h3>Ieriču statuss</h3>
+$devices
+"""<table class="table bordered border">
+<thead><tr>
+<th>Numurs</th>
+<th>Nosaukums</th>
+<th>Apraksts</th>
+<th></th>
+</tr></thead>
+<tbody>
+$for device in devices:
+    $device_id = device['id']
+    $device_responses = test_results[device_id]
+    $if device_responses == test_conditions[number]:
+        <tr class="success" id=$("device_{}".format(device['number']))>
+    $elif device_responses > 0:
+        <tr class="warning" id=$("device_{}".format(step['number']))>
+    $else:
+        <tr class="danger" id=$("device_{}".format(step['number']))>
+    <td>$device['number']</td>
+    <td>$device['name']</td>
+    <td>$device['description']</td>
+    <td>$' ,'.join(step['steps_that_enable'])</td>
+    <td>
+    $if device[""] == True:
+        <button class="button step_reenable" type="submit">Ieslēgt soli</button>
+        <button class="button step_finish" type="submit" disabled>Pabeigt soli</button>
+    $elif step["enabled"] == True:
+        <button class="button step_reenable" type="submit" disabled>Ieslēgt soli</button>
+        <button class="button step_finish" type="submit">Pabeigt soli</button>
+    $else:
+        <button class="button step_enable" type="submit">Ieslēgt soli</button>
+        <button class="button step_finish" type="submit">Pabeigt soli</button>
+    </td>
+</tbody>
+</table>
+"""
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
