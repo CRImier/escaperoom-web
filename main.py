@@ -63,9 +63,10 @@ class GameControl():
 
     def GET(self):
         
-        print "##"
+        print "#"
         while True:
             try:
+                print "##"
                 game_info = {'state':server.get_game_state(), 'name':'Museum'}
                 break
             except:
