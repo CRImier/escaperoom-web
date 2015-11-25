@@ -68,7 +68,8 @@ class GameControl():
                 game_info = {'state':server.get_game_state(), 'name':'Museum'}
                 break
             except:
-                pass
+                print "###"
+                sleep(1)
         
         #game_info = {'state':server.get_game_state(), 'name':'Museum'}
         time_left = server.get_time_left()
