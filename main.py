@@ -63,6 +63,7 @@ class GameControl():
 
     def GET(self):
         
+        print "##"
         while True:
             try:
                 game_info = {'state':server.get_game_state(), 'name':'Museum'}
