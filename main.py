@@ -118,10 +118,24 @@ class GameControl():
                 step_name = steps[step_index]['name']
             except KeyError:
                 raise
-            try:
-                server.enable_step(step_name)
-            except: #TODO: monitor for exceptions as they appear
-                raise
+            
+            print "2#"
+            while True:
+                try:
+                    print "2##"
+                    server.enable_step(step_name)
+                    break
+                except:
+                    print "2###"
+                    sleep(1)
+                    pass
+            print "2#!"
+                    
+            
+            #try:
+            #    server.enable_step(step_name)
+            #except: #TODO: monitor for exceptions as they appear
+            #    raise
         elif action == 'start':
             try:
                 len_minutes = post_data["minutes"] #Length, for now only minutes are supported
