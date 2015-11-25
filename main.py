@@ -7,6 +7,8 @@ import sys
 import logging
 import config
 
+from time import sleep
+
 # i18n directory.
 localedir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'i18n')
 
@@ -60,8 +62,15 @@ class DeviceControl():
 class GameControl():
 
     def GET(self):
-        print "#####",server.get_game_state()
-        game_info = {'state':server.get_game_state(), 'name':'Museum'}
+        
+        while True:
+            try:
+                game_info = {'state':server.get_game_state(), 'name':'Museum'}
+                break
+            except:
+                pass
+        
+        #game_info = {'state':server.get_game_state(), 'name':'Museum'}
         time_left = server.get_time_left()
         steps = server.get_steps()
         #Modifying steps for nice UI output
