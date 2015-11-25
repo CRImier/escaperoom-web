@@ -61,6 +61,7 @@ class GameControl():
 
     def GET(self):
         game_info = {'state':server.get_game_state(), 'name':'Museum'}
+        print game_info
         time_left = server.get_time_left()
         steps = server.get_steps()
         #Modifying steps for nice UI output
