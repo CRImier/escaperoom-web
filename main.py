@@ -28,7 +28,7 @@ class ConnectionManager():
         
 class MiddleServer():
     def __getattr__(self, name): # Google about overriding getattr in python
-        server = jsonrpclib.Server('localhost', 8070)
+        server = jsonrpclib.Server('http://{}:{}'.format('localhost', 8070))
         method = server.__getattr__(name)
         response = method()
         #server.stop() #not sure if this is correct, testing required.
