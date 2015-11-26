@@ -27,7 +27,7 @@ class ConnectionManager():
         
         
 class MiddleServer():
-    def __getattribute__(self, name): # Google about overriding getattr in python
+    def __getattr__(self, name): # Google about overriding getattr in python
         server = jsonrpclib.Server('http://{}:{}'.format(self.hostname, self.port))
         method = server.__getattr__(name)
         response = method()
@@ -83,7 +83,7 @@ class GameControl():
 #            pass
         
         print "#!"
-        game_info = {'state':server.get_game_state(), 'name':'Museum'}
+        game_info = {'state':serverserver.__getattr__("get_game_state")(), 'name':'Museum'}
         #game_info = {'state':server.get_game_state(), 'name':'Museum'}
         time_left = server.get_time_left()
         steps = server.get_steps()
