@@ -27,7 +27,7 @@ class ConnectionManager():
         server = self.server
         
         
-class MiddleServer
+class MiddleServer():
     def __getattr__(self, name) # Google about overriding getattr in python
         #One more server instance
         method = server.__getattr__(name)
