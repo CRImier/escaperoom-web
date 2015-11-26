@@ -76,7 +76,8 @@ class GameControl():
         while True:
             try:
                 print "##"
-                game_info = {'state':server.get_game_state(), 'name':'Museum'}
+                #game_info = {'state':server.get_game_state(), 'name':'Museum'}
+                game_info = {'state':MiddleServer.__getAttr("get_game_state")(), 'name':'Museum'}
                 break
             except:
                 print "###"
