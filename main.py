@@ -128,18 +128,11 @@ class GameControl():
             except KeyError:
                 raise
             
-            print "2#"
-            while True:
-                try:
-                    print "2##"
-                    server.enable_step(step_name)
-                    break
-                except:
-                    print "2###"
-                    sleep(1)
-                    pass
-            print "2#!"
-                    
+            try:
+                server.enable_step(step_name)
+            except:
+                raise
+                                
             
             #try:
             #    server.enable_step(step_name)
