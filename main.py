@@ -75,13 +75,13 @@ class GameControl():
         print "#"
         try:
             print "##"
-                #game_info = {'state':server.get_game_state(), 'name':'Museum'}
-                game_info = {'state':MiddleServer.get_game_state(), 'name':'Museum'}
-                break
-            except:
-                print "###"
-                sleep(1)
-                pass
+            #game_info = {'state':server.get_game_state(), 'name':'Museum'}
+            game_info = {'state':MiddleServer.get_game_state(), 'name':'Museum'}
+            break
+        except:
+            print "###"
+            sleep(1)
+        pass
         
         print "#!"
         #game_info = {'state':server.get_game_state(), 'name':'Museum'}
