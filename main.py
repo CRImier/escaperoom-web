@@ -30,9 +30,10 @@ class MiddleServer():
     def __getattr__(self, name): # Google about overriding getattr in python
         server = jsonrpclib.Server('http://{}:{}'.format('localhost', 8070))
         method = server.__getattr__(name)
-        response = method()
+        return method
+        #response = method(self, )
         #server.stop() #not sure if this is correct, testing required.
-        return response
+        #return response
 
 class DeviceControl():
 
