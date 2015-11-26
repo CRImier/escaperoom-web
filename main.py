@@ -23,17 +23,17 @@ class ConnectionManager():
 
     def start_server(self):
         global server
-        self.server = jsonrpclib.Server('http://{}:{}'.format(self.hostname, self.port))
-        server = self.server
+        
+        server = MiddleServer()
         
         
 class MiddleServer():
     def __getattribute__(self, name): # Google about overriding getattr in python
-        #One more server instance TODO
-        #method = server.__getattr__(name)
-        #response = method()
+        server = jsonrpclib.Server('http://{}:{}'.format(self.hostname, self.port))
+        method = server.__getattr__(name)
+        response = method()
         #server.stop() #not sure if this is correct, testing required.
-        return "Ololo"
+        return response
 
 class DeviceControl():
 
