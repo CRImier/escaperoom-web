@@ -84,9 +84,9 @@ class GameControl():
 #            pass
         
         print "#!"
-        game_info = {'state':server.__getattr__("get_game_state"), 'name':'Museum'}
+        game_info = {'state':server.__getattr__("get_game_state")(), 'name':'Museum'}
         #game_info = {'state':server.get_game_state(), 'name':'Museum'}
-        time_left = server.__getattr__("get_time_left")
+        time_left = server.__getattr__("get_time_left")()
         steps = server.__getattr__("get_steps")()
         #Modifying steps for nice UI output
         step_num_dict = {}
@@ -99,7 +99,7 @@ class GameControl():
                  step['stepnum_that_enable'] = ["Start"]
                     
         print "3####"
-        for i in game_info: print i
+        for i in game_info.values(): print i
         return render.game(game_info, time_left, steps) #game info State is failing, check what's in there
 
     def POST(self):
