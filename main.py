@@ -123,7 +123,7 @@ class GameControl():
                 step_id = post_data["step_name"] 
                 step_index = step_id[5:]
                 step_index = int(step_index)-1
-                steps = server.get_steps()
+                steps = server.__getattr__("get_steps")
                 step_name = steps[step_index]['name']
             except KeyError:
                 raise
