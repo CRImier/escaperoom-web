@@ -133,7 +133,7 @@ class GameControl():
                 raise
             
             try:
-                server.enable_step("", step_name)
+                server.enable_step(step_name)
             except:
                 raise
                                 
