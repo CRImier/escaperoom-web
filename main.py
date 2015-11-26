@@ -59,7 +59,8 @@ class DeviceControl():
                 return devices
         elif action == 'test_devices':
             try:
-                test_result = server.test_devices()
+                #test_result = server.test_devices()
+                test_result = MiddleServer.__getAttr("test_devices")()
             except: #TODO: monitor for exceptions as they appear
                 raise
             else:
