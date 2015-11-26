@@ -31,9 +31,7 @@ class MiddleServer():
         server = jsonrpclib.Server('http://{}:{}'.format('localhost', 8070))
         method = server.__getattr__(name)
         return method
-        #response = method(self, )
-        #server.stop() #not sure if this is correct, testing required.
-        #return response
+ 
 
 class DeviceControl():
 
@@ -42,6 +40,7 @@ class DeviceControl():
         game_info = {'state':server.__getattr__("get_game_state")(), 'name':'Museum'}
         time_left = server.get_time_left()
         devices = server.get_devices()
+        print(devices)
         return render.devices(game_info, devices)
 
     def POST(self):
@@ -60,7 +59,6 @@ class DeviceControl():
                 return devices
         elif action == 'test_devices':
             try:
-                #test_result = server.test_devices()
                 test_result = MiddleServer.__getAttr__("test_devices")()
             except: #TODO: monitor for exceptions as they appear
                 raise
@@ -72,20 +70,7 @@ class DeviceControl():
 class GameControl():
 
     def GET(self):
-        
-        print "#"
-#        try:
-#            print "##"
-#            #game_info = {'state':server.get_game_state(), 'name':'Museum'}
-#            game_info = {'state':MiddleServer.get_game_state(), 'name':'Museum'}
-#        except:
-#            print "###"
-#            sleep(1)
-#            pass
-        
-        print "#!"
         game_info = {'state':server.__getattr__("get_game_state")(), 'name':'Museum'}
-        #game_info = {'state':server.get_game_state(), 'name':'Museum'}
         time_left = server.__getattr__("get_time_left")()
         steps = server.__getattr__("get_steps")()
         #Modifying steps for nice UI output
@@ -97,8 +82,7 @@ class GameControl():
             step['stepnum_that_enable'] = [str(step_num_dict[step_name]) for step_name in step['steps_that_enable'] if step_name != 'start'] #An exception: 'start' step is not an actual step
             if not step['stepnum_that_enable']:
                  step['stepnum_that_enable'] = ["Start"]
-                    
-        print "3####"
+
         for i in game_info.values(): print i
         return render.game(game_info, time_left, steps) #game info State is failing, check what's in there
 
