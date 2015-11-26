@@ -90,7 +90,7 @@ class GameControl():
         steps = server.__getattr__("get_steps")
         #Modifying steps for nice UI output
         step_num_dict = {}
-        print "####"+type(steps)
+        print "####"+str(type(steps))
         for i in steps: print "##"+ i
         for index, step in enumerate(steps): 
             step['number'] = index + 1 #Assigning numbers to steps for the UI
