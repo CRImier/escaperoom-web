@@ -28,7 +28,7 @@ class ConnectionManager():
         
 class MiddleServer():
     def __getattr__(self, name): # Google about overriding getattr in python
-        server = jsonrpclib.Server('http://{}:{}'.format(self.hostname, self.port))
+        server = jsonrpclib.Server('localhost', 8070)
         method = server.__getattr__(name)
         response = method()
         #server.stop() #not sure if this is correct, testing required.
@@ -60,7 +60,7 @@ class DeviceControl():
         elif action == 'test_devices':
             try:
                 #test_result = server.test_devices()
-                test_result = MiddleServer.__getAttr("test_devices")()
+                test_result = MiddleServer.__getAttr__("test_devices")()
             except: #TODO: monitor for exceptions as they appear
                 raise
             else:
