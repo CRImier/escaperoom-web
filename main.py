@@ -25,12 +25,20 @@ class ConnectionManager():
         global server
         self.server = jsonrpclib.Server('http://{}:{}'.format(self.hostname, self.port))
         server = self.server
+        
+        
+class MiddleServer
+    def __getattr__(self, name) # Google about overriding getattr in python
+        #One more server instance
+        method = server.__getattr__(name)
+        response = method()
+        server.stop() #not sure if this is correct, testing required.
 
 class DeviceControl():
 
     def GET(self):
         global server
-        game_info = {'state':server.get_game_state(), 'name':'Museum'}
+        game_info = {'state':server.__getattr__("get_game_state")(), 'name':'Museum'}
         time_left = server.get_time_left()
         devices = server.get_devices()
         return render.devices(game_info, devices)
