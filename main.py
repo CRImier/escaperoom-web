@@ -83,7 +83,6 @@ class GameControl():
             if not step['stepnum_that_enable']:
                  step['stepnum_that_enable'] = ["Start"]
 
-        for i in game_info.values(): print i
         return render.game(game_info, time_left, steps) #game info State is failing, check what's in there
 
     def POST(self):
