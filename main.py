@@ -97,7 +97,10 @@ class GameControl():
             step['stepnum_that_enable'] = [str(step_num_dict[step_name]) for step_name in step['steps_that_enable'] if step_name != 'start'] #An exception: 'start' step is not an actual step
             if not step['stepnum_that_enable']:
                  step['stepnum_that_enable'] = ["Start"]
-        return render.game(game_info, time_left, steps)
+                    
+        print "3####
+        for i in game_info: print i
+        return render.game(game_info, time_left, steps) #game info State is failing, check what's in there
 
     def POST(self):
         post_data = web.input()
