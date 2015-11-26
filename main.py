@@ -85,7 +85,7 @@ class GameControl():
         print "#!"
         game_info = {'state':server.__getattr__("get_game_state"), 'name':'Museum'}
         #game_info = {'state':server.get_game_state(), 'name':'Museum'}
-        time_left = server.get_time_left()
+        time_left = server.__getattr__("get_time_left")
         steps = server.get_steps()
         #Modifying steps for nice UI output
         step_num_dict = {}
