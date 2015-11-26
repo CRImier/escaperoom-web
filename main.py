@@ -23,7 +23,6 @@ class ConnectionManager():
 
     def start_server(self):
         global server
-        
         server = MiddleServer()
         
         
@@ -84,7 +83,7 @@ class GameControl():
 #            pass
         
         print "#!"
-        game_info = {'state':MiddleServer.get_game_state(), 'name':'Museum'}
+        game_info = {'state':server.get_game_state(), 'name':'Museum'}
         #game_info = {'state':server.get_game_state(), 'name':'Museum'}
         time_left = server.get_time_left()
         steps = server.get_steps()
