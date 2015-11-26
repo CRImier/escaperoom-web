@@ -79,6 +79,7 @@ class GameControl():
             step['number'] = index + 1 #Assigning numbers to steps for the UI
             step_num_dict[step['name']] = step['number'] #Making step_name:step_number mappings
         for index, step in enumerate(steps): #Doing a second pass to ensure all the mappings we need are there
+            print "##", index, step
             step['stepnum_that_enable'] = [str(step_num_dict[step_name]) for step_name in step['steps_that_enable'] if step_name != 'start'] #An exception: 'start' step is not an actual step
             if not step['stepnum_that_enable']:
                  step['stepnum_that_enable'] = ["Start"]
