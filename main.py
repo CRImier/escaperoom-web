@@ -29,10 +29,11 @@ class ConnectionManager():
         
 class MiddleServer():
     def __getattr__(self, name): # Google about overriding getattr in python
-        #One more server instance
-        method = server.__getattr__(name)
-        response = method()
-        server.stop() #not sure if this is correct, testing required.
+        #One more server instance TODO
+        #method = server.__getattr__(name)
+        #response = method()
+        #server.stop() #not sure if this is correct, testing required.
+        return "Ololo"
 
 class DeviceControl():
 
