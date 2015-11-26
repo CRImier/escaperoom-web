@@ -88,10 +88,9 @@ class GameControl():
         game_info = {'state':server.__getattr__("get_game_state"), 'name':'Museum'}
         #game_info = {'state':server.get_game_state(), 'name':'Museum'}
         time_left = server.__getattr__("get_time_left")
-        steps = server.__getattr__("get_steps")
+        steps = server.__getattr__("get_steps")()
         #Modifying steps for nice UI output
         step_num_dict = {}
-        print "####"+str(type(steps))
         for i in steps: print "##"+ i
         for index, step in enumerate(steps): 
             step['number'] = index + 1 #Assigning numbers to steps for the UI
