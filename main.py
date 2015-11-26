@@ -73,16 +73,17 @@ class GameControl():
     def GET(self):
         
         print "#"
-        try:
-            print "##"
-            #game_info = {'state':server.get_game_state(), 'name':'Museum'}
-            game_info = {'state':MiddleServer.get_game_state(), 'name':'Museum'}
-        except:
-            print "###"
-            sleep(1)
-            pass
+#        try:
+#            print "##"
+#            #game_info = {'state':server.get_game_state(), 'name':'Museum'}
+#            game_info = {'state':MiddleServer.get_game_state(), 'name':'Museum'}
+#        except:
+#            print "###"
+#            sleep(1)
+#            pass
         
         print "#!"
+        game_info = {'state':MiddleServer.get_game_state(), 'name':'Museum'}
         #game_info = {'state':server.get_game_state(), 'name':'Museum'}
         time_left = server.get_time_left()
         steps = server.get_steps()
