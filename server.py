@@ -115,7 +115,7 @@ class GameControl():
             except KeyError:
                 raise
             
-            try:
+            try: #TODO any reason for this to be separate from above try? KeyError reasons?
                 server.enable_step(step_name)
             except:
                 raise
