@@ -73,8 +73,10 @@ class DebugPage():
         global server
         game_info = {'state':server.__getattr__("get_game_state")(), 'name':'Museum'}
         time_left = server.get_time_left()
+        devices = server.get_devices()
         problem_list = ["No Skittles left", "Sensor not found", "Everything is on fire"]
-        return render.debug(problem_list)
+        
+        return render.debug(devices, problem_list)
 
     def POST(self):
         post_data = web.input()
