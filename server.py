@@ -176,8 +176,7 @@ class GameControl():
 if __name__ == "__main__":
     urls = (
         '/', 'GameControl',
-        '/steps', 'GameControl',
-        '/debug', 'Debug'
+        '/steps', 'GameControl'
         #'/devices', 'DeviceControl'
     )
     app = web.application(urls, globals())
