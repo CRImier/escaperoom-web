@@ -57,9 +57,9 @@ $def with (game_info, devices)
 <tbody>
 $devices
 $for device in devices:
-    <td>$device['name']</td>
-    <td>$device['description']</td>
-    <td>$device['id']</td>
+    <td>$device.name</td>
+    <td>$device.description</td>
+    <td>$device.id</td>
     <td>0/0</td>
     <td><button class="button device_button success" type="submit" value="test_devices"> Testēt</button></td>
     </tr>
