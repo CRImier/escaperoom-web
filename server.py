@@ -66,6 +66,40 @@ class DeviceControl():
                 return devices
         else:
             pass #Maybe issue a warning?
+        
+class DebugPage():
+
+    def GET(self):
+        global server
+        game_info = {'state':server.__getattr__("get_game_state")(), 'name':'Museum'}
+        time_left = server.get_time_left()
+        problem_list = ["No Skittles left", "Sensor not found", "Everything is on fire"]
+        return render.debug(problem_list)
+
+    def POST(self):
+        post_data = web.input()
+        print(post_data)
+        try:
+            action = post_data['action']
+        except KeyError:
+            return False
+        if action == 'restart_server':
+            try:
+                devices = server.get_devices()
+            except: #TODO: monitor for exceptions as they appear
+                raise
+            else:
+                return devices
+        elif action == 'test_devices':
+            try:
+                test_result = MiddleServer.__getAttr__("test_devices")()
+            except: #TODO: monitor for exceptions as they appear
+                raise
+            else:
+                return devices
+        else:
+            pass #Maybe issue a warning?
+        
 
 class GameControl():
 
@@ -176,8 +210,8 @@ class GameControl():
 if __name__ == "__main__":
     urls = (
         '/', 'GameControl',
-        '/steps', 'GameControl'
-        #'/devices', 'DeviceControl'
+        '/steps', 'GameControl',
+        '/debug', 'DebugPage'
     )
     app = web.application(urls, globals())
     #gettext.install('messages', localedir, unicode=True)   
