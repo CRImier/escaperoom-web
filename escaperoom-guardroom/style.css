@@ -18,3 +18,61 @@ body {
 #password_button {
     background-color: crimson;
 }
+
+
+.message {
+	color: #FFF;
+	top: 42%;
+	left: 42%;
+	display: table;
+	background-color: #000;
+	font-size: 24px;
+	width: 20%;
+	height: 14%;
+	z-index: 9999;
+	position: absolute;
+	outline: 3px solid #0F0;
+	box-shadow:0px 0px 25px #CFC;
+}
+
+.message div {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.matrix {
+    background-color: #000;
+    color: #0f0;
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.matrix span {
+    display: inline-block;
+    position: relative;
+    width: 1.4rem;
+    word-wrap: break-word;
+}
+
+.matrix .one {
+    animation: spin 3.5s infinite linear;
+}
+
+.matrix .two {
+    animation: spin 3.75s infinite linear;
+}
+
+.matrix .three {
+    animation: spin 2s infinite linear;
+}
+
+.matrix .four {
+    animation: spin 3.25s infinite linear;
+}
+
+@-moz-keyframes spin {
+    0% { bottom: 100%; }
+    100% { bottom: 0; } 
+}
