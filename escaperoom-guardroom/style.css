@@ -11,11 +11,11 @@ body {
     text-align: center;
 }
 
-#password_block {
+.password_block {
     margin-top: 250px;
 }
 
-#password_button {
+.password_button {
     background-color: crimson;
 }
 
@@ -57,19 +57,19 @@ body {
 }
 
 .matrix .one {
-    animation: spin 3.5s infinite linear;
+    animation: spin 16s infinite linear;
 }
 
 .matrix .two {
-    animation: spin 3.75s infinite linear;
+    animation: spin 11s infinite linear;
 }
 
 .matrix .three {
-    animation: spin 2s infinite linear;
+    animation: spin 13s infinite linear;
 }
 
 .matrix .four {
-    animation: spin 3.25s infinite linear;
+    animation: spin 18.25s infinite linear;
 }
 
 @-moz-keyframes spin {
