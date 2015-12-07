@@ -1,10 +1,21 @@
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
-
-  <div class="message"><div>ACCESS DENIED</div></div>
+    <div class="info_block">
+        <div class="info_table">
+            <div id="access">ACCESS<br>DENIED</div>
+            <div id="password_block">
+                PASSWORD?
+                <div>
+                    <input type="password" id="password_field" onKeyPress="return checkSubmit(event)"/>
+                    <input type="submit" id="password_button" onclick="checkPassword()" value="LOG IN">
+                </div>
+            </div>
+        </div>
+    </div>
   <div class="matrix">
     <span class="one">0 1 0 1 0 1 0 0 0 1 0 0 0 1 0 1 0 0 1 0 0 0 0 0 0 1 0 1 0 1 0 0 0 1 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 1 0 0 1 0 1 0 1 1 0 0 0 1 1 0 1 1 0 1 1 1 1 0 1 1 0 1 1 0 1</span>
     <span class="two">0 1 0 1 0 1 0 0 0 1 0 0 0 1 0 1 0 0 1 0 0 0 0 0 0 1 0 1 0 1 0 0 0 1 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 1 0 0 1 0 1 0 1 1 0 0 0 1 1 0 1 1 0 1 1 1 1 0 1 1 0 1 1 0 1</span>

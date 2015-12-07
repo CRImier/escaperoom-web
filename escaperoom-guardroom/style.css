@@ -1,6 +1,5 @@
 html {
     display: block;
-    background-color: dimgray;
     
 }
 
@@ -11,33 +10,49 @@ body {
     text-align: center;
 }
 
-.password_block {
-    margin-top: 250px;
+#access {
+    display: none;
+    font-size: 48px;
+    color: #F00;
 }
 
-.password_button {
-    background-color: crimson;
+#password_button {
+    background-color: #0F0;
 }
 
+.info_table {
+    display: table;
+}
 
-.message {
+.info_block {
 	color: #FFF;
-	top: 42%;
-	left: 42%;
-	display: table;
+	top: 38%;
+	left: 38%;
+	display: block;
 	background-color: #000;
 	font-size: 24px;
-	width: 20%;
-	height: 14%;
+	width: 200px;
+	height: 100px;
 	z-index: 9999;
 	position: absolute;
 	outline: 3px solid #0F0;
 	box-shadow:0px 0px 25px #CFC;
+    overflow: hidden;
+    word-wrap: break-word;
+    padding: 50px;
 }
 
-.message div {
-	display: table-cell;
+.info_block div {
+    float: right;
+	display: block;
 	vertical-align: middle;
+    margin: auto;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.info_block input {
+    margin: 5px;
 }
 
 .matrix {
@@ -61,7 +76,7 @@ body {
 }
 
 .matrix .two {
-    animation: spin 11s infinite linear;
+    animation: spin 9s infinite linear;
 }
 
 .matrix .three {
