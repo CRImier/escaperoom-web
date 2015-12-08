@@ -20,11 +20,12 @@ body {
     background-color: #0F0;
 }
 
-.info_table {
-    display: table;
+#password_block {
+    display: block;
 }
 
-.info_block {
+
+#info_block {
 	color: #FFF;
 	top: 38%;
 	left: 38%;
@@ -42,16 +43,15 @@ body {
     padding: 50px;
 }
 
-.info_block div {
+#info_block div {
     float: right;
-	display: block;
 	vertical-align: middle;
     margin: auto;
     word-wrap: break-word;
     overflow: hidden;
 }
 
-.info_block input {
+#info_block input {
     margin: 5px;
 }
 
@@ -72,6 +72,7 @@ body {
 }
 
 .matrix .one {
+    margin: 5px;
     animation: spin 16s infinite linear;
 }
 
