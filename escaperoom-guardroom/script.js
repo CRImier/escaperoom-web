@@ -1,3 +1,10 @@
+var source = new EventSource("http://192.168.1.107:7080/stream");
+source.onmessage = function(event) {
+    window.alert(event.data);
+    //display lock status according to event.data
+    //document.getElementById("result").innerHTML += event.data + "<br>";
+};
+
 function resetLogin() {
     "use strict";
     document.getElementById('access').style.display = 'none';
