@@ -3,6 +3,7 @@ function resetLogin() {
     document.getElementById('access').style.display = 'none';
     document.getElementById('info_block').style.outline = '3px solid #0F0';
     document.getElementById('password_block').style.display = 'block';
+    document.getElementById('password_field').value = "";
 }
 
 function checkPassword() {
