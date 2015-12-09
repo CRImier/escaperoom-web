@@ -10,7 +10,7 @@ function checkPassword() {
     var msgTimer;
     var password = document.getElementById('password_field').value;
 
-    if (password === "correcthorse") {
+    if (password === "a") {
         document.getElementById('password_block').style.display = 'none';
         document.getElementById('info_block').style.left = "25%";
         document.getElementById('info_block').style.top = "5%";

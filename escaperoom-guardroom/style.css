@@ -42,12 +42,35 @@ body {
 #security_console {
     display: none;
     color: #0F0;
-    line-height: 50px;
+    line-height: 75px;
     font-size: 36px;
 }
 
-#security_console p {
-    margin: 24px;
+.lock_container {
+    float:left;
+    margin: 5%;
+    display:block;
+    justify-content: center;
+    align-items:center;
+    width: 90%;
+    vertical-align: middle;
+    overflow: visible;
+}
+
+.lock_wrapper {
+    color: #FFF;
+    margin-top: 20px;
+    padding: 0 10% 0 10%;
+    vertical-align: middle;
+    justify-content: left;
+    text-align: left;
+    height: 70px;
+    width: 80%;
+}
+
+.lock_wrapper div {
+    float: right;
+    color: #0F0;
 }
 
 #info_block {
@@ -71,7 +94,6 @@ body {
 #info_block div {
     float: right;
 	vertical-align: middle;
-    margin: auto;
     word-wrap: break-word;
     overflow: hidden;
 }
